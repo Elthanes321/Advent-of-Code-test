@@ -10075,8 +10075,8 @@ abdefghi";
             Console.WriteLine("-----------------------------");
             {
                 Heightmap myMap = new(input12);
-                Console.WriteLine(myMap.GetMinimumWay());
-
+                Console.WriteLine(myMap.FindMinimal());
+                Console.WriteLine(myMap.FindMinimalMinimal());
 
             }
             
