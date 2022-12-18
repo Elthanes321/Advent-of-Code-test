@@ -9637,16 +9637,256 @@ U 19
 D 1
 U 5
 L 3";
+        private static string input10 = @"addx 2
+addx 3
+addx -2
+addx 3
+noop
+addx 6
+addx -1
+addx 4
+addx 1
+noop
+addx 3
+addx 1
+addx 7
+noop
+noop
+addx -1
+addx 3
+addx 2
+noop
+addx 4
+addx 2
+addx -25
+addx -7
+addx -4
+addx 2
+addx 2
+addx 19
+addx -8
+addx -5
+addx 2
+addx -9
+addx 16
+addx 3
+addx -2
+addx 12
+addx -5
+addx 2
+addx -15
+noop
+noop
+noop
+addx 5
+addx 16
+addx -22
+addx -14
+addx 5
+noop
+addx 29
+noop
+noop
+noop
+addx -21
+addx 2
+noop
+noop
+addx 5
+addx -1
+addx 1
+noop
+noop
+addx 8
+addx -2
+addx 4
+noop
+addx -22
+addx 29
+noop
+addx -36
+noop
+addx -2
+addx 6
+addx -2
+addx 2
+noop
+noop
+noop
+addx 8
+addx 2
+addx 10
+noop
+addx -5
+addx 3
+addx -2
+addx 9
+addx -2
+addx 2
+addx -21
+addx 10
+addx 17
+addx -38
+noop
+noop
+noop
+addx 34
+addx -27
+addx 2
+addx -6
+addx 7
+addx 5
+addx 2
+addx 5
+noop
+noop
+noop
+addx 3
+addx -2
+addx 2
+addx 5
+addx 2
+addx -29
+addx 35
+addx -3
+addx -25
+addx -8
+addx 1
+noop
+addx 4
+addx 3
+addx -2
+addx 5
+noop
+addx 8
+addx -6
+noop
+addx -3
+addx 10
+noop
+noop
+addx 6
+addx -1
+addx -18
+addx 21
+addx -30
+addx 37
+addx 1
+noop
+noop
+noop
+noop
+";
+        private static string input11 = @"Monkey 0:
+  Starting items: 74, 64, 74, 63, 53
+  Operation: new = old * 7
+  Test: divisible by 5
+    If true: throw to monkey 1
+    If false: throw to monkey 6
 
+Monkey 1:
+  Starting items: 69, 99, 95, 62
+  Operation: new = old * old
+  Test: divisible by 17
+    If true: throw to monkey 2
+    If false: throw to monkey 5
 
-        private static string test = @"R 5
-U 8
-L 8
-D 3
-R 17
-D 10
-L 25
-U 20";
+Monkey 2:
+  Starting items: 59, 81
+  Operation: new = old + 8
+  Test: divisible by 7
+    If true: throw to monkey 4
+    If false: throw to monkey 3
+
+Monkey 3:
+  Starting items: 50, 67, 63, 57, 63, 83, 97
+  Operation: new = old + 4
+  Test: divisible by 13
+    If true: throw to monkey 0
+    If false: throw to monkey 7
+
+Monkey 4:
+  Starting items: 61, 94, 85, 52, 81, 90, 94, 70
+  Operation: new = old + 3
+  Test: divisible by 19
+    If true: throw to monkey 7
+    If false: throw to monkey 3
+
+Monkey 5:
+  Starting items: 69
+  Operation: new = old + 5
+  Test: divisible by 3
+    If true: throw to monkey 4
+    If false: throw to monkey 2
+
+Monkey 6:
+  Starting items: 54, 55, 58
+  Operation: new = old + 7
+  Test: divisible by 11
+    If true: throw to monkey 1
+    If false: throw to monkey 5
+
+Monkey 7:
+  Starting items: 79, 51, 83, 88, 93, 76
+  Operation: new = old * 3
+  Test: divisible by 2
+    If true: throw to monkey 0
+    If false: throw to monkey 6
+";
+        private static string input12 = @"abaaaaaaaaccccccccccccccccccaaaaaccccaaaaaaccccccccccccccccccccccaaaaaaaaaacccccccccccccccccccccccccccccccaaaaaccccccccccccccccccccccccccccccccccccccccccaaaaaa
+abaaaaaaaacccccccccccccccccccaaaaaccccaaaacccccaaaacccccccccccccccaaaaaaaaaacccccccccccccccccccccccccccccaaaaaaccccccccccccccccccccccccccccccccccccccccccccaaaa
+abccaaaaaaccccccccccccccccccaaaaaaccccaaaaccccaaaaaccccccccccaaaaaaaaaaaaaaacccccccccccccccccccccccccccccaaaacccccccccccccccccccccccccccccaaaccccccccccccccaaaa
+abcaaaaaaaccccccccccccccccccaaaaccccccaccaccccaaaaaacccccccccaaaaaaaaaaaaaaacccccccccccccccccccccacccccccccaacccccccccccccccccccccccccccccaaaccccccccccccccaaaa
+abccaacccaccccccccccccccccccccaaacccccccccccccaaaaaaccccccccccaaaaaaaaacaaacccccccccccccccccccaaaacccccccccccccccccccccccccaacccccccaaccccaaacccccccccccccaaaaa
+abcaaaaaacccccccccccccccccccccccccccccccccccccaaaaaccccccccccaaaaaaaaaaccccaacaaccccccccccccccaaaaaacccccccccccccccccccccccaacccccccaaaacaaaaccccccccccccccaccc
+abccaaaaacccccccccccccccccccccccccccccccccccaaccaaacccccccccaaaaaaaaaaaacccaaaaccccccccccccccccaaaaacccccccccccccccaacaaaaaaacccccccaaaaaaaaacccccccccccccccccc
+abccaaaaaacccccccccccccccccccccccccccccaaacaaaccccccccccccccaaaaaaaaaaacccaaaaacccccccccccccccaaaaacccccccccccccaaaaaccaaaaaaaaccccccaaaaaalllllllcccaacccccccc
+abccaaaaaaccccccaaaaacccccccccaaaccccccaaaaaaaccccccccccccccaaacaaacaaacccaaaaaaccccccccccccccaccaaccccccccccccccaaaaacaaaaaaaaajkkkkkkkkkklllllllccccaaaaacccc
+abccaaaaacccccccaaaaacccccccccaaaaccccccaaaaaaccccccccaacaacccccaaacccccccacaaaaccccccccaaaccccccccccccccccccccccaaaaaccaaaaaaajjkkkkkkkkkkllssllllcccaaaaacccc
+abcccaaaaccccccaaaaaacccccccccaaaaccccccaaaaaaaaccccccaaaaacccccaaccccccccccaacccccccccaaaacccccccccccccccaaccccaaaaaccaaaaaacjjjjkkkkkkkkssssssslllccaaaaccccc
+abcccccccccccccaaaaaacccccccccaaaccccccaaaaaaaaacaaccccaaaaacccccccccccccccaaccccccccccaaaaccccccccccccccaaacccccccaaccaaaaaajjjjrrrrrrsssssssssslllcccaaaccccc
+abcccccccccccccaaaaaacccccccccccccccccaaaaaaaaaaaaaaacaaaaaacccccccccccaaacaacccccccccccaaaccccaaacccccaaaaaaaaccccccccaacaaajjjrrrrrrrsssssuusssslmcccaaaacccc
+abcccccccccccccccaacccccccccccccccaacaaaacaaaccaaaaaacaaaaccccccccccccccaaaaaccccccccccccccccccaaaaacccaaaaaaaaccccccccccccaajjjrrrruuurssuuuuvsqqmmcddaaaacccc
+abccccccccccccccccccccccccccccccccaaaaacccaaacccaaaaccccaaccccccccccccccaaaaaaacccccccccccccccaaaaaaccccaaaaaacccccccccccccccjjrrruuuuuuuuuuuuvvqqmmmdddccccccc
+abcccccccccccccccccccccccacccccccccaaaaaccaaacccaaaaccccccccccccccccccccaaaaaaacccccccccccccccaaaaaaccccaaaaaacccccccccaaccccjjjrrtuuuuuuuuyyvvvqqmmmddddcccccc
+abccccccccccccccccccccaaaaccccccccaaaaaacccccaacaccacccccccccccccccccccaaaaaaccccccccccccccccccaaaaaccccaaaaaaccccccccaaaccccjjjrrttuxxxuuxyyyvvqqmmmmdddcccccc
+abcccccccccaacccccccccaaaaaaccccccaaaaccccccaaaccccccccccccccccccccccccaacaaaccccccccccccccccccaacaaccccaaccaaccccaaaaaaaccccjjjrrtttxxxxxyyyyvvqqqmmmddddccccc
+abccccccccaaaacccccccccaaaacccccccccaaccccccaaacaaaccccccccccccccccccaaccccaacccccccccccccccccccccccccccccccccccccaaaaaaaaaacijjqrtttxxxxxyyyvvvqqqqmmmdddccccc
+abcccccacaaaaaccccccccaaaaaccccccccccccccaaaaaaaaaacccccccccccccccccaaaccccccccccccccccccccccccccccccccccccccccccccaaaaaaaaaciiiqqqttxxxxxyyyvvvvqqqqmmmdddcccc
+SbcccccaaaaaaaaaacccccaacaaccccccccccccccaaaaaaaaaccccccccccccccaaacaaacccccccccccccccccccccccccccccccccccccccccccccaaaaaaaciiiqqqtttxxxEzzyyyyvvvqqqmmmdddcccc
+abcccccaaaaaaaaaaccccccccccccaaccccccccccccaaaaaccccccccccccccccaaaaaaaaaacccccccaacccccccccccccaacccccccccccccccccaaaaaaccciiiqqqttxxxxyyyyyyyyvvvqqqmmmeddccc
+abcccccccaaaaaacccccccccccaaaaccccccccccaaaaaaaaacccccccaaaacccccaaaaaaaaacccccaaaaccccccccccaacaaaccccccccccccccccaaaaaaaciiiqqqtttxxyyyyyyyyyvvvvqqqnnneeeccc
+abcccccccaaaaaacccccccccccaaaaaaccccccccaaaaaaaaaaccccccaaaaccccccaaaaaaaccccccaaaaaaccccccccaaaaacccccccccccccccccaaccaaaciiiqqtttxxxxwwyyywwvvvvrrrnnnneeeccc
+abcccccccaaaaaaccccccccccccaaaaacccccccaaaaaaacaaaccccccaaaacccccaaaaaacccccccccaaaaccccccccccaaaaaaccccaaccccccccccccccaaciiqqqtttxxxwwwyywwwwvvrrrrnnneeecccc
+abccccccaaaaaaaaccccccccccaaaaaccccccccaaaaaaccccccccccccaaacccccaaaaaaacccccccaaaaaccccccccaaaaaaaaacccaaccccccccccccccccciiqqqtttttwwswwyywwrrrrrrnnnneeecccc
+abccccccccccccacccccccccccaccaaccccaaccaaaaaacccccccccccaccccccccaaacaaacccccccaacaaccccccccaaaaacaaaaaaaacccccccccaacccccciiqqqqttssssswwwwwrrrrnnnnnneeeecccc
+abcccccccccccccccccccccccccccccaaaaaaccccaacccccccaaacaaacccccccccccccaacaaacccccccccccccccccccaaaccaaaaaaaaccccaacaacccccciiiqqpppsssssswwwwrrrnnnnneeeeeccccc
+abcccccccccccccccccccccccccccccaaaaaaaccccccccccccaaaaaaaccccccccccccccccaaacccccccccccccccccccaaaccaaaaaaaaacccaaaaacccccchhhhppppppppssswwwrroonnfeeeeacccccc
+abccccccccccccccccccccaaaaaccccaaaaaaaaccccccccccccaaaaaaccccccccccccccaaaaaaaacccccccccccccccccccccaaaaaaaaaccccaaaaaaccccchhhhhpppppppsssssrroonfffeeaaaacccc
+abccccccccccccccccccccaaaaacccccaaaaaaaccccccccccccaaaaaaaaccccccccccccaaaaaaaacccccccccccccccccccccaaaaaacccccaaaaaaaacccccchhhhhhhppppsssssrooofffffaaaaacccc
+abcccccaacaaacccccccccaaaaaacccaaaaaacccccccccccccaaaaaaaaacccccccccccccaaaaacccccccccccccccccccccccaaaaaaaccccaaaaaccaccccccchhhhhhhhpppssssrooofffcaaaaaccccc
+abcccccaaaaaacccccccccaaaaaacccaaaaaaccccccccccccaaaaaaaaaacccccccccccccaaaaaaccccccccccccccccccccccaccaaaccccccacaaaccaacccccccchhhhhgppooooooofffcaaaaacccccc
+abcccccaaaaaacccccccccaaaaaaccccccaaacaacccccccccaaacaaaccccccccccaaacccaaaaaaccccccccccccccccccccccccccaaacccccccaaacaaaccccccccccchgggoooooooffffcaaaaaaccccc
+abaccccaaaaaaaccccccccccaaccccccccaaaaaacccccccccccccaaaccccccccccaaaaccaaaccacaacaacccccccccccccccccccccccccccccccaaaaaaaaccccccccccggggoooooffffccaccaaaccccc
+abacccaaaaaaaaccccccccccccccccccccaaaaaccccccccccccccaacccccccaaacaaaacccaaccccaaaaacccccccccccccccccccaacaacccccccaaaaaaaacccccccccccggggggggfffcccccccccccccc
+abacccaaaaaaaaccccccccaaacccccccccaaaaaaccccccccccccccccccccccaaacaaaacaaaaccccaaaaaaccccccccaaccccccccaaaaaccccccccaaaaaaacccccccccccaaggggggffcccccccccccccca
+abcccccccaaacccccccccaaaaaaccccccaaaaaaaacccccccccccccccccccaaaaaaaaaaaaaaaccccaaaaaaccccccacaaaacccccccaaaaacccccccaaaaaccccccccccccaaacgggggaccccccccccccccaa
+abcccccccaaccccccccccaaaaaaccccccaaaaaaaacccccccaaacccccccccaaaaaaaaaaaaaaaacccaaaaaaccccccaaaaaaccccccaaaaaaccccccaaaaaaacccccccccccaaaccccaaaccccccccccaaacaa
+abcccccccccccccccccccaaaaaccccccccccaaccccccccaaaaaccccccccccaaaaaaaaaaaaaaaaccccaaaccccccccaaaacccccccaaaaccccccccccccaaccccccccccccccccccccccccccccccccaaaaaa
+abccccccccccccccccccccaaaaacccccccccaaccccccccaaaaaacccccccccaaaaaaaaaaaaaaaacccccccccccccccaaaacccccccccaacccccccccccccccccccccccccccccccccccccccccccccccaaaaa";
+        private static string input13 = @"";
+        private static string input14 = @"";
+        private static string input15 = @"";
+        private static string input16 = @"";
+        private static string input17 = @"";
+        private static string input18 = @"";
+        private static string input19 = @"";
+
+        private static string test = @"Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi";
 
 
 
@@ -9769,7 +10009,7 @@ U 20";
             Console.WriteLine("Day 9:");
             Console.WriteLine("-----------------------------");
             {
-                var divide = test.Split(Environment.NewLine);
+                var divide = input9.Split(Environment.NewLine);
                 Rope mRope = new Rope(2);
                 foreach (var d in divide)
                 {
@@ -9787,7 +10027,59 @@ U 20";
                 }
                 Console.WriteLine(mRope.VisitedSpaces());
             }
+            Console.WriteLine("Day 10:");
+            Console.WriteLine("-----------------------------");
+            {
+                var divide = input10.Split(Environment.NewLine);
+                Cathode ctd = new Cathode(220);
+                foreach (var d in divide)
+                {
+                    if (string.IsNullOrEmpty(d))
+                        continue;
+                    
+                    ctd.Command(d,false);
+                }
+                //Console.WriteLine(ctd.GetSum());
+                ctd = new Cathode(220);
+                foreach (var d in divide)
+                {
+                    if (string.IsNullOrEmpty(d))
+                        continue;
 
+                    ctd.Command(d, true);
+                }
+                ctd.Finish();
+            }
+            Console.WriteLine("Day 11:");
+            Console.WriteLine("-----------------------------");
+            {
+                var divide = input11.Split(Environment.NewLine + Environment.NewLine);
+                List<Monke> monkeyList = new();
+                for(int i = 0;i < divide.Length; i++)
+                {
+                    monkeyList.Add(new Monke(divide[i].Split(Environment.NewLine)));
+                }
+                Handler mHand = new(monkeyList);
+                mHand.PlayRounds(20);
+               // Console.WriteLine(mHand.GetMonkeyBusiness());
+                monkeyList = new();
+                for (int i = 0; i < divide.Length; i++)
+                {
+                    monkeyList.Add(new Monke(divide[i].Split(Environment.NewLine),false));
+                }
+                mHand = new(monkeyList);
+                mHand.PlayRounds(10000);
+                Console.WriteLine(mHand.GetMonkeyBusiness());
+            }
+            Console.WriteLine("Day 12:");
+            Console.WriteLine("-----------------------------");
+            {
+                Heightmap myMap = new(input12);
+                Console.WriteLine(myMap.GetMinimumWay());
+
+
+            }
+            
         }
 
 

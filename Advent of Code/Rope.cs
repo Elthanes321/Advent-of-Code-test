@@ -52,13 +52,6 @@ public class Rope
                     Right(int.Parse(cmd[1]));
                     break;
             }
-            List<string> a = new List<string>();
-            foreach (var e in visited)
-            {
-                a.Add(String.Join(",", e));
-            }
-            foreach (var e in a)
-                Console.WriteLine(e);
         }
 
         private void Left(int input)
@@ -68,8 +61,41 @@ public class Rope
                 rope[0][0]--;
                 for (int j = 1; j < rope.Count; j++)
                 {
-
-                    if (rope[j-1][0] == rope[j][0]-2)
+                    if (rope[j - 1][1] == rope[j][1] + 2)
+                    {
+                        if (rope[j - 1][0] == rope[j][0])
+                        {
+                            rope[j][1]++;
+                        }
+                        else if (rope[j - 1][0] > rope[j][0])
+                        {
+                            rope[j][0]++;
+                            rope[j][1]++;
+                        }
+                        else
+                        {
+                            rope[j][0]--;
+                            rope[j][1]++;
+                        }
+                    }
+                    else if (rope[j - 1][0] == rope[j][0] + 2)
+                    {
+                        if (rope[j - 1][1] == rope[j][1])
+                        {
+                            rope[j][0]++;
+                        }
+                        else if (rope[j - 1][1] > rope[j][1])
+                        {
+                            rope[j][1]++;
+                            rope[j][0]++;
+                        }
+                        else
+                        {
+                            rope[j][1]--;
+                            rope[j][0]++;
+                        }
+                    }
+                    else if (rope[j - 1][0] == rope[j][0] - 2)
                     {
                         if (rope[j - 1][1] == rope[j][1])
                         {
@@ -86,6 +112,23 @@ public class Rope
                             rope[j][0]--;
                         }
                     }
+                    else if (rope[j - 1][1] == rope[j][1] - 2)
+                    {
+                        if (rope[j - 1][0] == rope[j][0])
+                        {
+                            rope[j][1]--;
+                        }
+                        else if (rope[j - 1][0] > rope[j][0])
+                        {
+                            rope[j][0]++;
+                            rope[j][1]--;
+                        }
+                        else
+                        {
+                            rope[j][0]--;
+                            rope[j][1]--;
+                        }
+                    }
                 }
                 visited.Add(new int[] { rope.Last()[0], rope.Last()[1] });
             }
@@ -99,13 +142,30 @@ public class Rope
                 rope[0][0]++;
                 for (int j = 1; j < rope.Count; j++)
                 {
-                    if (rope[j-1][0] == rope[j][0] + 2)
+                    if (rope[j - 1][1] == rope[j][1] + 2)
                     {
-                        if (rope[j-1][1] == rope[j][1])
+                        if (rope[j - 1][0] == rope[j][0])
+                        {
+                            rope[j][1]++;
+                        }
+                        else if (rope[j - 1][0] > rope[j][0])
+                        {
+                            rope[j][0]++;
+                            rope[j][1]++;
+                        }
+                        else
+                        {
+                            rope[j][0]--;
+                            rope[j][1]++;
+                        }
+                    }
+                    else if (rope[j - 1][0] == rope[j][0] + 2)
+                    {
+                        if (rope[j - 1][1] == rope[j][1])
                         {
                             rope[j][0]++;
                         }
-                        else if (rope[j-1][1] > rope[j][1])
+                        else if (rope[j - 1][1] > rope[j][1])
                         {
                             rope[j][1]++;
                             rope[j][0]++;
@@ -114,6 +174,40 @@ public class Rope
                         {
                             rope[j][1]--;
                             rope[j][0]++;
+                        }
+                    }
+                    else if (rope[j - 1][0] == rope[j][0] - 2)
+                    {
+                        if (rope[j - 1][1] == rope[j][1])
+                        {
+                            rope[j][0]--;
+                        }
+                        else if (rope[j - 1][1] > rope[j][1])
+                        {
+                            rope[j][1]++;
+                            rope[j][0]--;
+                        }
+                        else
+                        {
+                            rope[j][1]--;
+                            rope[j][0]--;
+                        }
+                    }
+                    else if (rope[j - 1][1] == rope[j][1] - 2)
+                    {
+                        if (rope[j - 1][0] == rope[j][0])
+                        {
+                            rope[j][1]--;
+                        }
+                        else if (rope[j - 1][0] > rope[j][0])
+                        {
+                            rope[j][0]++;
+                            rope[j][1]--;
+                        }
+                        else
+                        {
+                            rope[j][0]--;
+                            rope[j][1]--;
                         }
                     }
                 }
@@ -145,6 +239,57 @@ public class Rope
                             rope[j][1]++;
                         }
                     }
+                    else if(rope[j - 1][0] == rope[j][0] + 2) 
+                    {
+                        if (rope[j - 1][1] == rope[j][1])
+                        {
+                            rope[j][0]++;
+                        }
+                        else if (rope[j - 1][1] > rope[j][1])
+                        {
+                            rope[j][1]++;
+                            rope[j][0]++;
+                        }
+                        else
+                        {
+                            rope[j][1]--;
+                            rope[j][0]++;
+                        }
+                    }
+                    else if (rope[j - 1][0] == rope[j][0] - 2)
+                    {
+                        if (rope[j - 1][1] == rope[j][1])
+                        {
+                            rope[j][0]--;
+                        }
+                        else if (rope[j - 1][1] > rope[j][1])
+                        {
+                            rope[j][1]++;
+                            rope[j][0]--;
+                        }
+                        else
+                        {
+                            rope[j][1]--;
+                            rope[j][0]--;
+                        }
+                    }
+                    else if (rope[j - 1][1] == rope[j][1] - 2)
+                    {
+                        if (rope[j - 1][0] == rope[j][0])
+                        {
+                            rope[j][1]--;
+                        }
+                        else if (rope[j - 1][0] > rope[j][0])
+                        {
+                            rope[j][0]++;
+                            rope[j][1]--;
+                        }
+                        else
+                        {
+                            rope[j][0]--;
+                            rope[j][1]--;
+                        }
+                    }
                 }
                 visited.Add(new int[] { rope.Last()[0], rope.Last()[1] });
 
@@ -155,27 +300,78 @@ public class Rope
         {
                 for (int i = 0; i < input; i++)
                 {
-                    rope[0][1]--;
-                    for (int j = 1; j < rope.Count; j++)
+                rope[0][1]--;
+                for (int j = 1; j < rope.Count; j++)
+                {
+                    if (rope[j - 1][1] == rope[j][1] + 2)
                     {
-                        if (rope[j - 1][1] == rope[j][1] - 2)
+                        if (rope[j - 1][0] == rope[j][0])
                         {
-                            if (rope[j - 1][0] == rope[j][0])
-                            {
-                                rope[j][1]--;
-                            }
-                            else if (rope[j - 1][0] > rope[j][0])
-                            {
-                                rope[j][0]++;
-                                rope[j][1]--;
-                            }
-                            else
-                            {
-                                rope[j][0]--;
-                                rope[j][1]--;
-                            }
+                            rope[j][1]++;
+                        }
+                        else if (rope[j - 1][0] > rope[j][0])
+                        {
+                            rope[j][0]++;
+                            rope[j][1]++;
+                        }
+                        else
+                        {
+                            rope[j][0]--;
+                            rope[j][1]++;
                         }
                     }
+                    else if (rope[j - 1][0] == rope[j][0] + 2)
+                    {
+                        if (rope[j - 1][1] == rope[j][1])
+                        {
+                            rope[j][0]++;
+                        }
+                        else if (rope[j - 1][1] > rope[j][1])
+                        {
+                            rope[j][1]++;
+                            rope[j][0]++;
+                        }
+                        else
+                        {
+                            rope[j][1]--;
+                            rope[j][0]++;
+                        }
+                    }
+                    else if (rope[j - 1][0] == rope[j][0] - 2)
+                    {
+                        if (rope[j - 1][1] == rope[j][1])
+                        {
+                            rope[j][0]--;
+                        }
+                        else if (rope[j - 1][1] > rope[j][1])
+                        {
+                            rope[j][1]++;
+                            rope[j][0]--;
+                        }
+                        else
+                        {
+                            rope[j][1]--;
+                            rope[j][0]--;
+                        }
+                    }
+                    else if (rope[j - 1][1] == rope[j][1] - 2)
+                    {
+                        if (rope[j - 1][0] == rope[j][0])
+                        {
+                            rope[j][1]--;
+                        }
+                        else if (rope[j - 1][0] > rope[j][0])
+                        {
+                            rope[j][0]++;
+                            rope[j][1]--;
+                        }
+                        else
+                        {
+                            rope[j][0]--;
+                            rope[j][1]--;
+                        }
+                    }
+                }
                     visited.Add(new int[] { rope.Last()[0], rope.Last()[1] });
                 }
             }
